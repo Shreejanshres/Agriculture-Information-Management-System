@@ -11,9 +11,23 @@ export const Register  = () =>{
     const [phone,setPhone] =useState('');
     const [user,setUser]=useState('');
 
-    const handleSubmit=(e) => {
+    const handleSubmit=async(e) => {
         e.preventDefault();
-        console.log(email);
+        try {
+            const response = await fetch("http://localhost:8000/register/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({name,email,pass,address,phone,user}),
+            });
+            const data = await response.json();
+            console.log(data);
+            // Handle the response data
+          } catch (error) {
+            console.log(error);
+            // Handle the error
+          }
     }
 
     return (

@@ -18,9 +18,22 @@ class Farmer(models.Model):
         return self.firstname
     
 class Login(models.Model):
-    username = models.CharField(max_length=20)
+    email = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.username
+        return self.email
 
+class crops_detail(models.Model):
+    id=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=20)
+    region=models.CharField(max_length=20)
+    climate=models.CharField(max_length=20)
+    soil_quality=models.CharField(max_length=20)
+    rainfall=models.CharField(max_length=20)
+    humidity=models.CharField(max_length=20)
+    disease=models.CharField(max_length=20)
+    fertilizer=models.CharField(max_length=20)
+    
+    def __str__(self) :
+        return self.name

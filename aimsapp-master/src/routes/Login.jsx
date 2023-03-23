@@ -3,6 +3,7 @@ import"../Css/Logincss.css";
 import Loginimg from '../Images/Loginimg.png';
 import { Link } from 'react-router-dom';
 
+
 const Login=()=>{
     const [email,setEmail] =useState('');
     const [pass,setPass] =useState('');
@@ -18,8 +19,10 @@ const Login=()=>{
               body: JSON.stringify({email, pass}),
             });
             const data = await response.json();
-            console.log(data);
-            // Handle the response data
+            if(data['success']===true){
+               return window.location.href = "/";
+            }
+       
           } catch (error) {
             console.log(error);
             // Handle the error
